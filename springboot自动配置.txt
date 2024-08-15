@@ -1,0 +1,11 @@
+redis是一个高性能的键值数据库
+数据类型：String，hash，list，set，sortset
+
+事务：原子性，一致性，隔离型，持久性
+
+springboot自动装配：EnableAutoConfiguration注解用于启用相关的配置功能，他会导入AutoConfigurationImportSelector类自动配置选择器，
+他的作用就是查找classpath下jar文件中meta-inf目录下的spring.factories文件（工厂文件）里面存放了自动配置类的完整类名，
+通过解析后将这些类名存放到List集合中然后交由spring解析，当满足配置上声明的@Conditional注解条件是，则创建该配置类实例纳入spring容器管理
+
+springmvc流程，用户发起http请求，经过DispatcherServlet，调用HandlerMapping映射器，生成处理对象和处理拦截器，然后调用HandlerAdapter适配器
+调用具体的处理器，执行完后返回ModelAndView，DispatcherServlet将ModelAndView返回给ViewResolve解析，返回view，DispatcherServlet进行渲染，返回用户

@@ -1,0 +1,29 @@
+<script>
+      function dele(id){
+        layui.use('layer',function(){
+            var layer = layui.layer;
+              layer.msg('你确定删除么？', {
+              time: 2000 ,//2秒自动关闭
+              btn: ['确定', '取消'],
+              yes: function(index){
+                  console.log(id);
+                  $.ajax({
+                      url:"传",
+                      data:{'id':id},
+                      type:"Post",
+                      dataType:"json",
+                      success:function(data){
+                        console.log(data);
+                          layer.msg(data.msg);
+                          location.reload(); //删除成功后再刷新
+                      },
+                      error:function(data){
+                          $.messager.alert('错误',data.msg);
+                      }
+                  });
+                  layer.close(index);
+              }
+          });
+        });
+    };
+  </script>
