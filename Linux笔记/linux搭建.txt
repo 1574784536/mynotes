@@ -1,0 +1,18 @@
+./configure --prefix=/opt/nginx --sbin-path=/usr/bin/nginx --add-module=/fileservice/fast/fastdfs-nginx-module-1.20/src
+
+
+docker run -d --restart=always --privileged=true --net=host --name=fastdfs -e IP=192.168.2.131 -e WEB_PORT=80 -v ${HOME}/fastdfs:/var/local/fdfs registry.cn-beijing.aliyuncs.com/tianzuo/fastdfs
+
+
+file crc32=2573655733
+example file url: http://192.168.2.131/group1/M00/00/00/wKgCg15buVmATOkPAAAADplm3rU99_big.html
+cd /home/fuck/fastdfs/storage/data
+
+
+启动tracker，运行如下命令
+service fdfs_trackerd start
+启动storage
+service fdfs_storaged start
+###### 启动nginx
+cd /usr/bin/
+./nginx	#启动
